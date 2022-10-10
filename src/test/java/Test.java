@@ -64,11 +64,23 @@ public class Test {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.sharelane.com/cgi-bin/register.py");
-        driver.findElement(By.xpath("//input[@name='zip_code']")).sendKeys("12345");
+        driver.findElement(By.name("zip_code")).sendKeys("12345");
         driver.findElement(By.xpath("//input[@value='Continue']")).click();
-        String text = String.valueOf(driver.findElement(By.xpath("//span[@class='required_text']")).isDisplayed());
-
+        String text = String.valueOf(driver.findElement(By.xpath("//span[@class='required_text']"))
+                .isDisplayed());
     }
+
+//    @org.testng.annotations.Test
+//    public void freeTest(){
+//        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+//        driver = new ChromeDriver();
+//        driver.get("https://www.sharelane.com/cgi-bin/register.py");
+//        driver.findElement(By.xpath("//input[@name='zip_code']")).sendKeys("12345");
+//        driver.findElement(By.xpath("//input[@value='Continue']")).click();
+//        driver.findElement(By.name("keyword")).getText();
+//        String testSome = driver.findElement(By.xpath("//input[@name='keyword']")).getText();
+//        Assert.assertEquals(testSome,"Search");
+//    }
 
 //    @AfterClass
 //    public void closeBrowser(){
