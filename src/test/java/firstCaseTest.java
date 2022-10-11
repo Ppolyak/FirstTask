@@ -2,14 +2,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-public class Test {
+public class firstCaseTest {
     // 1. Открыть браузер на странице регистрации
     // 2. Ввести зипкод 3. нажать продолжить 4. нажать рег кнопку 5. проверить сообщения папку
     WebDriver driver;
 
-    @org.testng.annotations.Test
+    @BeforeClass
+
+    @Test //добавить импорт
     public void verifyRegPageTest(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();  
@@ -23,7 +26,7 @@ public class Test {
         //если ошибка, то код после ассертов не выполняется, поэтому после ассертов лучше ничего не писать
     }
 
-    @org.testng.annotations.Test
+    @Test
     public void allFieldsTest(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
@@ -41,7 +44,7 @@ public class Test {
         Assert.assertEquals(successMessage,"Account is created!");
     }
 
-    @org.testng.annotations.Test
+    @Test
     public void differentPasswordFieldsTest(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
@@ -59,7 +62,7 @@ public class Test {
                 "was previously used");
     }
 
-    @org.testng.annotations.Test
+    @Test
     public void requiredDisplayedTest(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
